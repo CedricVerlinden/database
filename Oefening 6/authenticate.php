@@ -19,20 +19,22 @@
                 switch ($_SESSION["user"]) {
                     case "admin":
                         if (!($_SESSION["pass"] == "admin")) {
-                            echo "Deze gebruiker bestaat niet.";
+                            echo "Deze gebruiker bestaat niet. Probeer het <a href=\"home.php\">opnieuw</a>.";
                             break;
                         }
                         header("Location:./redirect.php");
                         break;
                     case "gast":
                         if (!($_SESSION["pass"] == "paswoord")) {
-                            echo "Deze gebruiker bestaat niet.";
+                            echo "Deze gebruiker bestaat niet. Probeer het <a href=\"home.php\">opnieuw</a>.";
                             break;
                         }
                         header("Location:./redirect.php");
                         break;
                 }
                 return;
+            } else {
+                header("Location:./home.php");
             }
 
         } else {

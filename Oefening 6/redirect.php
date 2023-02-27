@@ -13,8 +13,10 @@
     <?php
         if ($_SESSION["user"] == "admin") {
             echo "Je bent succesvol ingelogd als <b>admin</b>! Klik <a href=\"account.php\">hier</a> om te redirecten naar de account pagina.";
-        } else {
+        } else if ($_SESSION["user"] == "gast") {
             echo "Je bent succesvol ingelogd als <b>gast</b>! Klik <a href=\"account.php\">hier</a> om te redirecten naar de account pagina.";
+        } else {
+            header("Location:./home.php");
         }
     ?>
 </body>
