@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    transition: ease-in-out .2s;
+}
+
+body {
+    font-size: 36px;
+}
+
+input[type=text] {
+    height: 30px;
+    padding: 5px 7px 5px 7px;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: 24px;
+}
+
+input[type=submit] {
+    font-size: 18px;
+    padding: 5px 20px;
+    border-radius: 5px;
+    background-color: gray;
+}
+input.wijzig {
+    margin-left: 10px;
+}
+
+th, td {
+    text-align: left;
+    padding-right: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: gray;
+}
+
+a.toevoegen {
+    color: green;
+}
+
+a.wijzigen {
+    color: orange;
+}
+
+a.verwijderen {
+    color: red;
+}
+
+a:hover {
+    color: darkgray;
+}
