@@ -1,9 +1,9 @@
 <?php
-include 'connect.php';
-include 'register.php';
+include './connect.inc.php';
+include './register.inc.php';
 
 if (!(isset($_POST["login"]))) {
-    header("Location: ../register.php");
+    header("Location: ../public_html/register.php");
     return;
 }
 
@@ -18,7 +18,7 @@ function loginUser($email, $pwd) {
     $userExists = emailExists($email);
 
     if ($userExists === false) {
-        header("Location: ../signin.php?error=wronglogin");
+        header("Location: ../public_html/login.php?error=wronglogin");
         exit();
     }
 
@@ -26,7 +26,7 @@ function loginUser($email, $pwd) {
     $checkPwd = password_verify($pwd, $pwdHashed);
 
     if ($checkPwd === false) {
-        header("Location: ../signin.php?error=wronglogin");
+        header("Location: ../public_html/login.php?error=wronglogin");
         exit();
     } else if ($checkPwd === true) {
         session_start();
@@ -34,7 +34,7 @@ function loginUser($email, $pwd) {
         $_SESSION["useremail"] = $userExists["email"];
         $_SESSION["admin"] = $userExists["admin"];
         $_SESSION["authenticated"] = true;
-        header("Location: ../index.php");
+        header("Location: ../public_html/index.php");
         exit();
     }
 }

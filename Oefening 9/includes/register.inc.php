@@ -1,8 +1,8 @@
 <?php
-include 'connect.php';
+include './connect.inc.php';
 
 if (!(isset($_POST["create-account"]))) {
-    header("Location: ../register.php");
+    header("Location: ../public_html/register.php");
     return;
 }
 
@@ -12,13 +12,13 @@ $pwdRepeat = $_POST["repeatpassword"];
 
 // Check if email is already in use
 if (emailExists($email) !== false) {
-    header("Location: ../register.php?error=emailalreadyinuse");
+    header("Location: ../public_html/register.php?error=emailalreadyinuse");
     exit();
 }
 
 // Check if passwords match
 if (pwdMatch($pwd, $pwdRepeat) !== false) {
-    header("Location: ../register.php?error=passwordsdontmatch");
+    header("Location: ../public_html/register.php?error=passwordsdontmatch");
     exit();
 }
 
@@ -32,7 +32,7 @@ function emailExists($email) {
     $statement = $connection->prepare($sql);
 
     if (!$statement) {
-        header("Location: ../register.php?error=sqlerror");
+        header("Location: ../public_html/register.php?error=sqlerror");
         die("Error: " . $connection->error);
     }
 
@@ -63,7 +63,7 @@ function createAccount($email, $password) {
     $statement = $connection->prepare($sql);
 
     if (!$statement) {
-        header("Location: ../register.php?error=sqlerror");
+        header("Location: ../public_html/register.php?error=sqlerror");
         die("Error: " . $connection->error);
     }
 
@@ -72,6 +72,6 @@ function createAccount($email, $password) {
     $statement->bind_param("ss", $email, $hashedPassword);
     $statement->execute();
 
-    header("Location: ../register.php?success=accountcreated");
+    header("Location: ../public_html/register.php?success=accountcreated");
     exit();
 }

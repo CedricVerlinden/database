@@ -1,6 +1,6 @@
 <?php
 session_start();
-include './includes/data.php';
+include '../includes/data.inc.php';
 ?>
 
 <!DOCTYPE html>
@@ -10,14 +10,16 @@ include './includes/data.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/0489e35579.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./assets/css/index.css">
+    <link rel="stylesheet" href="../assets/css/index.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
     <title>Home - Store</title>
 </head>
 <body>
     <div class="container">
         
         <div class="navigation">
-            <h1>Store</h1>
+            <h1><a href="./">Store</a></h1>
             <div class="categories">
                 <ul class="category-list">
                     <?php getAllCategories(); ?>
@@ -36,7 +38,7 @@ include './includes/data.php';
                     ';
                 } else {
                     echo '
-                    <form action="signin.php">
+                    <form action="login.php" method="post">
                         <button>Log in</button>
                     </form>
                     ';

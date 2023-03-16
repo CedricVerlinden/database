@@ -1,31 +1,31 @@
 @font-face {
     font-family: Linik-Black;
-    src: url('../assets/fonts/LinikSans-Black.ttf');
+    src: url('../fonts/LinikSans-Black.ttf');
 }
 
 @font-face {
     font-family: Linik-Bold;
-    src: url('../assets/fonts/LinikSans-Bold.ttf');
+    src: url('../fonts/LinikSans-Bold.ttf');
 }
 
 @font-face {
     font-family: Linik-Medium;
-    src: url('../assets/fonts/LinikSans-Medium.ttf');
+    src: url('../fonts/LinikSans-Medium.ttf');
 }
 
 @font-face {
     font-family: Linik-Regular;
-    src: url('../assets/fonts/LinikSans-Regular.ttf');
+    src: url('../fonts/LinikSans-Regular.ttf');
 }
 
 @font-face {
     font-family: Linik-Light;
-    src: url('../assets/fonts/LinikSans-Light.ttf');
+    src: url('../fonts/LinikSans-Light.ttf');
 }
 
 @font-face {
     font-family: Linik-Thin;
-    src: url('../assets/fonts/LinikSans-Thin.ttf');
+    src: url('../fonts/LinikSans-Thin.ttf');
 }
 
 
@@ -43,12 +43,146 @@ body {
     font-size: 16px;
     background-color: #1B1B1D;
     color: #ffffff;
-    padding: 0px 70px;
+    padding: 0 70px 0 20px;
 }
 
 
 /* Heading */
 h1, h2, h3, h4, h5, h6 {
     font-family: Linik-Bold;
-    font-weight: 800;
 }
+
+
+/* Buttons start */
+button {
+    font-family: Linik-Medium;
+    font-size: 24px;
+    background-color: #E38F25;
+    color: #1B1B1D;
+    padding: 10px 50px;
+    border: none;
+    border-radius: 50px;
+}
+/* Buttons end */
+
+
+/* Container start */
+.container {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+}
+/* Container end */
+
+
+/* Left side start */
+.signup-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 2;
+    padding: 30px 40px;
+    margin: 20px 0 20px 0;
+    background-color: #252527;
+    border-radius: 20px;
+}
+
+.signup-left a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.signup-left .content h2 {
+    font-size: 64px;
+}
+
+.signup-left .content p {
+    font-size: 24px;
+    color: #999999;
+    margin-top: 20px;
+}
+/* Left side end */
+
+
+/* Right side start */
+.signup-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex: 3;
+    padding: 0px 70px;
+    background-color: #1B1B1D;
+}
+
+.signup-right .signup-top h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.signup-right .signup-top p {
+    font-size: 24px;
+}
+
+.signup-right .signup-top a {
+    text-decoration: none;
+    color: #E38F25;
+    transition: ease-in-out .2s;
+}
+
+.signup-right .signup-top a:hover {
+    color: #e3ab66;
+}
+
+.signup-right .signup-bottom form {
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-right .signup-bottom form label {
+    font-size: 24px;
+    color: #CCCCCC;
+    margin-bottom: 10px;
+}
+
+.signup-right .signup-bottom form input {
+    padding: 15px 10px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    border: 2px solid #808080;
+    background-color: #1B1B1D;
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.signup-right .signup-bottom form input:focus {
+    border-color: 5px solid #ffffff;
+    background-color: #1B1B1D;
+    outline: none;
+}
+
+.signup-right .signup-bottom form input[type=submit] {
+    color: #1B1B1D;
+    background-color: #E38F25;
+    border: none;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.signup-right .signup-bottom form input[type=submit]:hover {
+    color: #E38F25;
+    background-color: #ffffff;
+    border: none;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.signup-right .signup-bottom .success {
+    text-align: center;
+    color: lime;
+}
+
+.signup-right .signup-bottom .error {
+    text-align: center;
+    color: red;
+}
+/* Right side end */

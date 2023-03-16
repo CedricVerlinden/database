@@ -1,6 +1,6 @@
 <?php
 session_start();
-include './includes/data.php';
+include '../includes/data.inc.php';
 
 if (isset($_SESSION["userid"])) {
     header("Location: ./index.php");
@@ -14,7 +14,7 @@ if (isset($_SESSION["userid"])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/register.css">
+    <link rel="stylesheet" href="../assets/css/account.css">
     <title>Log in - Store</title>
 </head>
 <body>
@@ -25,17 +25,17 @@ if (isset($_SESSION["userid"])) {
                 <h2>Welcome back!</h2>
                 <p>Log in to access your account and continue your gaming journey</p>
             </div>
-            <div style="min-height:100px"></div>
+            <div style="height:100px"></div>
         </div>
 
         <div class="signup-right">
             <div class="signup-top">
-                <h1>Sign in</h1>
-                <p>Don't have an account yet? <a href="register.php">Register here</a></p>
+                <h1>Log in</h1>
+                <p>Don't have an account yet? <a href="./register.php">Register here</a></p>
             </div>
 
             <div class="signup-bottom">
-                <form action="./includes/login.php" method="post">
+                <form action="../includes/login.inc.php" method="post">
                     <label for="email">Email</label>
                     <input type="email" name="email" id="email" required>
 
