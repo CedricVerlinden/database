@@ -27,6 +27,7 @@ if (!(isset($_SESSION["admin"]) && $_SESSION["admin"] == 1)) {
             <div class="categories">
                 <ul class="category-list">
                     <li><a href="#">Dashboard</a></li>
+                    <li><a href="./categories.php">Categories</a></li>
                     <li><a href="./products.php">Products</a></li>
                     <li><a href="#">Orders</a></li>
                     <li><a href="#">Customers</a></li>
