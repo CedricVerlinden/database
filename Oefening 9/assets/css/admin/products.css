@@ -47,6 +47,18 @@ body {
 }
 
 
+/* Buttons start */
+button {
+    font-family: Linik-Medium;
+    font-size: 24px;
+    background-color: #E38F25;
+    color: #1B1B1D;
+    padding: 10px 50px;
+    border: none;
+    border-radius: 50px;
+}
+
+
 /* Heading */
 h1, h2, h3, h4, h5, h6 {
     font-family: Linik-Bold;
@@ -58,13 +70,48 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    width: 100%;
 }
 /* Container end */
+
 
 .products {
     display: flex;
     flex-direction: column;
-    /* background-color: red; */
+    width: 100%;
+}
+
+.products .product-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+    margin-bottom: 40px;
+}
+
+.products .product-buttons form {
+    flex: 1;
+}
+
+.products .product-buttons form button {
+    cursor: pointer;
+    width: 100%;
+}
+
+.products .product-buttons form button:hover {
+    background-color: #ffffff;
+    color: #E38F25;
+}
+
+.products .product-buttons form .refresh {
+    cursor: pointer;
+    background-color: #252527;
+    color: white;
+}
+
+.products .product-buttons form .refresh:hover {
+    background-color: #E38F25;
+    color: #252527;
 }
 
 .products .product-card {
@@ -72,12 +119,10 @@ h1, h2, h3, h4, h5, h6 {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
     padding: 20px;
     border-radius: 20px;
     margin-bottom: 20px;
     background-color: #252527;
-    text-align: left;
 }
 
 .products .product-card .first {
@@ -92,6 +137,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .products .product-card button {
     font-family: Linik-Medium;
+    font-size: 16px;
     background-color: #E38F25;
     color: #1B1B1D;
     padding: 10px 30px;

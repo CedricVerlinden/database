@@ -33,7 +33,7 @@ include '../includes/data.inc.php';
                     echo '
                         <a href="account/cart.php"><i class="fa-solid fa-cart-shopping"></i></a>
                         <a href="account/"><i class="fa-solid fa-user"></i></a>
-                        <a href="../includes/logout.inc.php"><i class="fa-solid fa-right-from-bracket"></i></a>
+                        <a href="../includes/logout.inc.php"><i class="fa-solid fa-right-from-bracket logout"></i></a>
                     ';
                 } else {
                     echo '

@@ -22,7 +22,7 @@ if (!(isset($_SESSION["admin"]) && $_SESSION["admin"] == 1)) {
 <body>
     <div class="container">
         <div class="navigation">
-            <h1><a href="./">Store</a></h1>
+            <h1><a href="../">Store</a></h1>
 
             <div class="categories">
                 <ul class="category-list">
@@ -37,11 +37,19 @@ if (!(isset($_SESSION["admin"]) && $_SESSION["admin"] == 1)) {
                 <a href="./admin/"><i class="fa-solid fa-gear"></i></a>
                 <a href="./account/cart.php"><i class="fa-solid fa-cart-shopping"></i></a>
                 <a href="./account/"><i class="fa-solid fa-user"></i></a>
-                <a href="../includes/logout.inc.php"><i class="fa-solid fa-right-from-bracket"></i></a>
+                <a href="../../includes/logout.inc.php"><i class="fa-solid fa-right-from-bracket"></i></a>
             </div>
         </div>
 
         <div class="products">
+            <div class="product-buttons">
+                <form action="./products.php" method="post">
+                    <button class="refresh">Refresh</button>
+                </form>
+                <form action="./edit.php" method="post">
+                    <button class="new-product">New product</button>
+                </form>
+            </div>
             <?php getAllProductsForAdmin(); ?>
         </div>
     </div>

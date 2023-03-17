@@ -7,7 +7,7 @@ if (!(isset($_SESSION["admin"]) && $_SESSION["admin"] == 1)) {
     return;
 }
 
-if (!(isset($_POST["edit"]) || isset($_POST["delete"]))) {
+if (!(isset($_POST["edit"]) || isset($_POST["delete"]) || isset($_POST["confirm-edit"]))) {
     header("Location: ./");
     return;
 }
@@ -23,6 +23,8 @@ if (!(isset($_POST["edit"]) || isset($_POST["delete"]))) {
 </head>
 <body>
     <?php
+    global $connection;
+
     $type = $_GET["type"];
     $product = $_GET["product"];
 
@@ -33,7 +35,8 @@ if (!(isset($_POST["edit"]) || isset($_POST["delete"]))) {
         $category = $_POST["category"];
         $platform = $_POST["platform"];
 
-        $sql = "UPDATE products SET name=?, price=?, image=?, category=?, platform=? WHERE id=?";
+        $sql = "UPDATE products SET name=?, price=?, image=?, category=?, platform=? WHERE id=?;";
+        
         $statement = $connection->prepare($sql);
 
         if (!$statement) {

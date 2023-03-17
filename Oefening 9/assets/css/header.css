@@ -64,6 +64,10 @@
     color: #E38F25;
 }
 
+.navigation .navigation-right .logout:hover {
+    color: red;
+}
+
 li {
     display: inline-block;
     list-style: none;
