@@ -34,7 +34,7 @@ if (!(isset($_SESSION["admin"]) && $_SESSION["admin"] == 1)) {
             </div>
 
             <div class="navigation-right">
-                <a href="./admin/"><i class="fa-solid fa-gear"></i></a>
+                <a href="./"><i class="fa-solid fa-gear"></i></a>
                 <a href="./account/cart.php"><i class="fa-solid fa-cart-shopping"></i></a>
                 <a href="./account/"><i class="fa-solid fa-user"></i></a>
                 <a href="../../includes/logout.inc.php"><i class="fa-solid fa-right-from-bracket"></i></a>

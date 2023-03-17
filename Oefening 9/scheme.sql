@@ -1,7 +1,7 @@
--- Create database
-CREATE DATABASE store;
+-- Create table
+CREATE TABLE store;
 
--- Use database
+-- Use table
 USE store;
 
 -- Create table for categories

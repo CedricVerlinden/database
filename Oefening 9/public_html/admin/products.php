@@ -46,8 +46,8 @@ if (!(isset($_SESSION["admin"]) && $_SESSION["admin"] == 1)) {
                 <form action="./products.php" method="post">
                     <button class="refresh">Refresh</button>
                 </form>
-                <form action="./edit.php" method="post">
-                    <button class="new-product">New product</button>
+                <form action="./edit.php?type=create" method="post">
+                    <button class="new-product" name="new-product">New product</button>
                 </form>
             </div>
             <?php getAllProductsForAdmin(); ?>
