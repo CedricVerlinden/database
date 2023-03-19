@@ -47,18 +47,6 @@ body {
 }
 
 
-/* Buttons start */
-button {
-    font-family: Linik-Medium;
-    font-size: 24px;
-    background-color: #E38F25;
-    color: #1B1B1D;
-    padding: 10px 50px;
-    border: none;
-    border-radius: 50px;
-}
-
-
 /* Heading */
 h1, h2, h3, h4, h5, h6 {
     font-family: Linik-Bold;
@@ -70,83 +58,55 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    width: 100%;
+    margin-bottom: 60px;
 }
 /* Container end */
 
 
-.products {
+/* Products start */
+.products-wrapper {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    gap: 40px;
 }
 
-.products .product-buttons {
+.top {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 60px;
-    margin-bottom: 40px;
 }
 
-.products .product-buttons form {
-    flex: 1;
+.top h1 {
+    font-family: Linik-Medium;
 }
 
-.products .product-buttons form button {
-    cursor: pointer;
-    width: 100%;
-}
-
-.products .product-buttons form button:hover {
-    background-color: #ffffff;
-    color: #E38F25;
-}
-
-.products .product-buttons form .refresh {
-    cursor: pointer;
+.products {
+    padding: 0 20px 0px 20px;
+    border-radius: 20px;
     background-color: #252527;
-    color: white;
 }
 
-.products .product-buttons form .refresh:hover {
-    background-color: #E38F25;
-    color: #252527;
+.products table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 20px;
+    text-align: left;
 }
 
-.products .product-card {
+.products table th {
+    font-weight: 400;
+    padding: 0 0 20px 0;
+    color: #B3B3B3;
+    border-bottom: 2px solid #202022;
+}
+
+.products table .product {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    border-radius: 20px;
-    margin-bottom: 20px;
-    background-color: #252527;
-}
-
-.products .product-card .first {
-    display: flex;
     align-items: center;
 }
 
-.products .product-card .first img {
-    margin-left: 60px;
-    height: 64px;
-}
-
-.products .product-card button {
-    font-family: Linik-Medium;
-    font-size: 16px;
-    background-color: #E38F25;
-    color: #1B1B1D;
-    padding: 10px 30px;
-    border: none;
-    border-radius: 50px;
-}
-
-.products .product-card button:hover {
-    background-color: #ffffff;
-    color: #E38F25;
-    cursor: pointer;
+.products table .product img {
+    width: 50px;
+    margin-left: 50px;
 }

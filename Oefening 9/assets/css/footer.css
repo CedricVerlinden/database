@@ -32,53 +32,84 @@
 /* Footer start */  
 footer {
     display: flex;
-    align-items: center;
     flex-direction: column;
-    padding: 160px 0 60px 0;
+    justify-content: space-between;
+    gap: 160px;
+    margin: 120px 0 0 0;
 }
 
 footer .footer-top {
     display: flex;
-    justify-content: space-between;
-    align-items: start;
-    width: 100%;
+    flex-direction: row;
 }
 
-footer .footer-top .footer-column h2 {
+footer .footer-top .footer-left {
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+}
+
+footer .footer-top .footer-left h2 {
+    font-family: Linik-Bold;
     font-size: 32px;
     margin-bottom: 20px;
 }
 
-footer .footer-top .footer-column h3 {
+footer .footer-top .footer-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex: 3;
+}
+
+footer .footer-top .footer-right .footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+footer .footer-top .footer-right .footer-column h3 {
     font-family: Linik-Regular;
-    margin-bottom: 20px;
+    font-size: 24px;
     color: #B3B3B3;
 }
 
-footer .footer-top .footer-column ul {
+footer .footer-top .footer-right .footer-column ul {
     display: flex;
     flex-direction: column;
+    gap: 10px;
+    list-style: none;
 }
 
-footer .footer-top .footer-column ul li {
-    margin-bottom: 10px;
+footer .footer-top .footer-right .footer-column a {
+    font-family: Linik-Medium;
+    font-size: 24px;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+footer .footer-top .footer-right .footer-column a:hover {
+    color: #E38F25;
 }
 
 footer .footer-bottom {
     display: flex;
     justify-content: space-between;
-    margin-top: 160px;
-    width: 100%;
 }
 
-footer .footer-bottom .footer-socials i {
-    margin-left: 50px;
+footer .footer-bottom .footer-socials {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+footer .footer-bottom .footer-socials a {
     font-size: 24px;
+    text-decoration: none;
     color: #ffffff;
 }
 
-footer .footer-bottom .footer-socials i:hover {
-    transform: translateY(-2px);
+footer .footer-bottom .footer-socials a:hover {
     color: #E38F25;
 }
 /* Footer end */

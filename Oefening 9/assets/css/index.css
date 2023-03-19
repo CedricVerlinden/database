@@ -53,33 +53,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-/* Buttons start */
-button {
-    font-family: Linik-Medium;
-    font-size: 24px;
-    background-color: #E38F25;
-    color: #1B1B1D;
-    padding: 10px 50px;
-    border: none;
-    border-radius: 50px;
-}
-
-.navigation button:hover {
-    background-color: #ffffff;
-    color: #E38F25;
-    transform: translateY(-5px);
-    transition: transform ease-in-out .5s;
-    cursor: pointer;
-}
-/* Buttons end */
-
-
 /* Container start */
 .container {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    min-height: 100vh;
+    margin-bottom: 60px;
 }
 /* Container end */
 

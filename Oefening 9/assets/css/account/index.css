@@ -51,3 +51,44 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: Linik-Bold;
 }
+
+
+/* Personal Information start */
+.personal-information-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.personal-information form .input {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 50px;
+    margin-bottom: 20px;
+}
+
+.personal-information form .input label {
+    font-family: Linik-Medium;
+    font-size: 24px;
+    color: #ffffff;
+}
+
+.personal-information form .input input {
+    padding: 15px 10px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    border: 2px solid #808080;
+    background-color: #1B1B1D;
+    color: #ffffff;
+    font-size: 20px;
+    outline: none;
+}
+
+.personal-information form .input .left, .right {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 20px;
+}
+/* Personal Information end */

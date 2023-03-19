@@ -32,6 +32,7 @@
 /* Navigation start */
 .navigation {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding-bottom: 40px;
@@ -39,49 +40,55 @@
     border-bottom: 3px solid #202022;
 }
 
-.navigation a {
+.navigation .navigation-left {
+    flex: 1;
+}
+
+.navigation .navigation-left a {
     text-decoration: none;
     color: #ffffff;
 }
 
-.navigation .nav-links .link-list li .selected {
-    text-decoration: underline;
+.navigation .categories {
+    flex : 1;
+}
+
+.navigation .categories .category-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.navigation .categories .category-list {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.navigation .categories .category-list a {
+    font-family: Linik-Medium;
+    font-size: 24px;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.navigation .categories .category-list a:hover {
+    color: #E38F25;
 }
 
 .navigation .navigation-right {
     display: flex;
-    align-items: center;
+    justify-content: flex-end;
+    flex: 1;
+    gap: 50px;
 }
 
-.navigation .navigation-right i {
-    padding-left: 2px;
-    margin-left: 50px;
-    font-size: 20px;
-    color: #ffffff;
-}
-
-.navigation .navigation-right i:hover {
-    color: #E38F25;
-}
-
-.navigation .navigation-right .logout:hover {
-    color: red;
-}
-
-li {
-    display: inline-block;
-    list-style: none;
-}
-
-li a {
-    font-family: Linik-Medium;
+.navigation .navigation-right a {
     font-size: 24px;
     color: #ffffff;
-    text-decoration: none;
-    margin-right: 30px;
 }
 
-li a:hover {
+.navigation .navigation-right a:hover {
     color: #E38F25;
 }
 /* Navigation end */
