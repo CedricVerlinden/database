@@ -1,0 +1,24 @@
+* Clean up data.inc.php with:
+    - Make consistant functions for every table in the database. Only return resultsets (if arrays) or strings (if single value is required)
+    - Try reusing functions
+
+* Add platforms page for administrators to add/edit/remove platforms
+
+* Add account/index.php to update the adresses table
+
+* Get price of items in cart to update Payment Details
+
+* Add more input fields to Payment Details in account/cart.php
+
+* Design a checked out page for users to download their newly purchased products (one-time use)
+
+* Update account/orders.php with order data of the user
+
+* Design invoice PDF file
+
+-- MAYBE
+* Registration process:
+    - email and password
+
+    * on first login with new account:
+        - ask for payment details (inc. address)

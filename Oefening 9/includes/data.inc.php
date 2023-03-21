@@ -1053,9 +1053,8 @@ function addProductToCart($userId, $productId) {
         $cart = trim($cart, ',');
 
         $products = explode(",", $cart);
-
         $products[] = $productId;
-
+        
         $updatedCart = implode(",", $products);
     }
 
