@@ -116,7 +116,7 @@ if ($type == "edit" || $type == "delete") {
         }
 
         if (isset($_POST["create-user"])) {
-            if (createUser($_POST["name"], $_POST["password"], $_POST["admin"])) {
+            if (createUser($_POST["name"], $_POST["password"])) {
                 header("Location: ./customers.php");
                 exit();
             } else {

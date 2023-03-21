@@ -88,6 +88,22 @@
     color: #ffffff;
 }
 
+.navigation .navigation-right .shopping-cart {
+    position: relative;
+}
+
+.navigation .navigation-right .shopping-cart>p {
+    font-size: 12px;
+    text-decoration: none;
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background-color: #E38F25;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 100px;
+}
+
 .navigation .navigation-right a:hover {
     color: #E38F25;
 }

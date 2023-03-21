@@ -38,7 +38,7 @@ if (isset($_SESSION["userid"]) && isset($_POST["add-item"])) {
                         echo '<a href="admin/"><i class="fa-solid fa-gear"></i></a>';
                     }
                     echo '
-                        <a href="account/cart.php"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <a href="account/cart.php"><i class="fa-solid fa-cart-shopping shopping-cart"><p>1</p></i></a>
                         <a href="account/"><i class="fa-solid fa-user"></i></a>
                         <a href="./account/logout.php"><i class="fa-solid fa-right-from-bracket"></i></a>
                     ';
