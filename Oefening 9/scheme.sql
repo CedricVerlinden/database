@@ -5,7 +5,7 @@ CREATE TABLE store;
 USE store;
 
 -- Create table for adresses
-CREATE TABLE adresses (
+CREATE TABLE addresses (
     id INT(11) AUTO_INCREMENT PRIMARY KEY,
     user INT(11) NOT NULL,
     country TEXT NOT NULL,
@@ -24,7 +24,7 @@ CREATE TABLE categories (
 CREATE TABLE orders (
     id INT(11) AUTO_INCREMENT PRIMARY KEY,
     user INT(11) NOT NULL,
-    product INT(11) NOT NULL,
+    products TEXT NOT NULL,
     status INT(11) NOT NULL,
     pdf BLOB NOT NULL
     date_added DATETIME NOT NULL
@@ -42,7 +42,7 @@ CREATE TABLE products (
     category INT(11) NOT NULL,
     name TEXT NOT NULL,
     platform INT(11) NOT NULL,
-    price DOUBLE(11, 2) NOT NULL,
+    price INT(11) NOT NULL,
     images TEXT NOT NULL
 );
 

@@ -65,7 +65,7 @@ function updateUserAccount($id, $email, $password, $country, $state, $street, $n
         $statement->bind_param("si", $email, $id);
         $statement->execute();
     } else {
-        $sql = "UPDATE users SET email=?, password=?, admin=? WHERE id=?;";
+        $sql = "UPDATE users SET email=?, password=? WHERE id=?;";
         $statement = $connection->prepare($sql);
 
         if (!$statement) {
@@ -74,7 +74,7 @@ function updateUserAccount($id, $email, $password, $country, $state, $street, $n
 
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-        $statement->bind_param("ssii", $email, $hashedPassword, $admin, $id);
+        $statement->bind_param("ssi", $email, $hashedPassword, $id);
         $statement->execute();
     }
 
@@ -1075,6 +1075,7 @@ function getPendingOrdersOfUser($id) {
     <div class="orders">
         <table>
             <tr>
+                <th>ID</th>
                 <th>Products</th>
                 <th>Purchased</th>
                 <th>Price</th>
@@ -1083,6 +1084,7 @@ function getPendingOrdersOfUser($id) {
     while ($row = $resultSet->fetch_assoc()) {
         ?>
         <tr>
+            <td><?php echo $row["id"] ?></td>
             <td>
                 <div class="product">
                     <img src="<?php echo getProductImage($row["products"]) ?>">
@@ -1363,7 +1365,6 @@ function getCartProducts($id) {
     echo '</table>';
 }
 
-// for every product in cart, get the product information from the products table
 function getCartProductsInfo($id) {
     global $connection;
 
@@ -1398,7 +1399,6 @@ function getCartProductsInfo($id) {
 
     return $products_info;
 }
-
 
 function removeProductFromCart($userId, $productId) {
     global $connection;
@@ -1487,7 +1487,6 @@ function getCartTotal($id) {
     return $total;
 }
 
-// get total products in cart
 function getCartTotalProducts($id) {
     global $connection;
 
@@ -1510,4 +1509,12 @@ function getCartTotalProducts($id) {
     $products = explode(",", $cart);
 
     return count($products);
+}
+
+// empty order column in users table
+function emptyCart($id) {
+    global $connection;
+
+    $sql = "UPDATE users SET cart = '' WHERE id = $id";
+    $connection->query($sql);
 }

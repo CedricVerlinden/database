@@ -31,6 +31,8 @@ function createPdfFile($userId, $orderId) {
 function generateInvoicePDF($customerName, $address, $invoiceNumber, $invoiceDate, $items, $subtotal, $tax, $total) {
     global $connection;
     
+    define('EURO',chr(128));
+
     $pdf = new FPDF();
     $pdf->AddPage();
 
@@ -61,28 +63,26 @@ function generateInvoicePDF($customerName, $address, $invoiceNumber, $invoiceDat
     $pdf->SetFont('Helvetica','',12);
     foreach ($items as $item) {
         $productIds[] = $item['id'];
-        $pdf->Cell(90,10,$item['name'],1,0);
-        $pdf->Cell(30,10,$item['price'],1,0);
-        $pdf->Cell(30,10,$item['quantity'],1,0);
-        $pdf->Cell(40,10,$item['price']*$item['quantity'],1,1);
+        $pdf->Cell(90, 10, $item['name'], 1,0);
+        $pdf->Cell(30, 10, EURO . ' ' . $item['price'], 1,0);
+        $pdf->Cell(30, 10, $item['quantity'], 1,0);
+        $pdf->Cell(40, 10, EURO . ' ' . $item['price']*$item['quantity'], 1,1);
     }
 
     $productIdsString = implode(',', $productIds);
-    var_dump($productIds);
-    var_dump($productIdsString);
 
     $pdf->Cell(120,10, '' ,0,0);
     $pdf->Cell(30,10, 'Subtotal:', 0,0);
-    $pdf->Cell(40,10, $subtotal, 0,1);
+    $pdf->Cell(40,10, EURO . ' ' . $subtotal, 0,1);
 
     $pdf->Cell(120,10,'',0,0);
     $pdf->Cell(30,10,'BTW (21%):',0,0);
-    $pdf->Cell(40,10,$tax,0,1);
+    $pdf->Cell(40,10, EURO . ' ' . $tax,0,1);
 
     $pdf->SetFont('Helvetica','B',12);
     $pdf->Cell(120,10,'',0,0);
     $pdf->Cell(30,10,'Total:',0,0);
-    $pdf->Cell(40,10,$total,0,1);
+    $pdf->Cell(40,10, EURO . ' ' . $total,0,1);
 
     // output PDF to browser
     $pdf_file = $invoiceNumber . '.pdf';
