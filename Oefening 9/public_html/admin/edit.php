@@ -146,7 +146,7 @@ if ($type == "edit" || $type == "delete") {
         if ($type == "create") {
             // add this to header
             if (isset($_GET["product"]) && $_GET["product"] == "new") {
-                echo '
+                ?>
                 <div class="navigation">
                 <div class="navigation-left">
                     <a href="./products.php"><i class="fa-solid fa-arrow-left"></i></a>
@@ -159,27 +159,27 @@ if ($type == "edit" || $type == "delete") {
         
                 <div class="content">
                     <div class="left">
-                        <form action="./edit.php?type=create&product=new method="post">
+                        <form action="./edit.php?type=create&product=new" method="post">
                             <label for="name">What will the product be called?</label>
                             <input type="text" name="name" id="name" required>
 
                             <label for="price">How much will it cost?</label>
-                            <input type="text" price="price" id="price" required>
+                            <input type="text" name="price" id="price" required>
 
                             <label for="image">What image should be displayed?</label>
-                            <input type="text" image="image" id="image" required>
+                            <input type="text" name="image" id="image" required>
 
-                            <label for="platform">For which platform is this?</label> // TODO
-                            <input type="text" platform="platform" id="platform" required>
+                            <label for="platform">For which platform is this?</label>
+                            <?php echo getPlatformList() ?>
 
-                            <label for="category">In which category should it be placed?</label> // TODO
-                            <input type="text" category="category" id="category" required>
+                            <label for="category">In which category should it be placed?</label>
+                            <?php echo getCategoryList() ?>
         
                             <input type="submit" name="create-product" value="Create Product">
                         </form>
                     </div>
                 </div>
-                ';
+                <?php
             }
 
             if (isset($_GET["category"]) && $_GET["category"] == "new") {
@@ -196,7 +196,7 @@ if ($type == "edit" || $type == "delete") {
         
                 <div class="content">
                     <div class="left">
-                        <form action="./edit.php?type=create&category=new method="post">
+                        <form action="./edit.php?type=create&category=new" method="post">
                             <label for="name">What will the category be called?</label>
                             <input type="text" name="name" id="name" required>
         
@@ -221,7 +221,7 @@ if ($type == "edit" || $type == "delete") {
         
                 <div class="content">
                     <div class="left">
-                        <form action="./edit.php?type=create&user=new method="post">
+                        <form action="./edit.php?type=create&user=new" method="post">
                             <label for="email">What is the email of the user?</label>
                             <input type="email" name="email" id="email" required>
 

@@ -6,6 +6,10 @@ if (!(isset($_SESSION["userid"]))) {
     header("Location: ../index.php");
     return;
 }
+
+if (isset($_POST["download-invoice"])) {
+    downloadPdf($_POST["order-id"]);
+}
 ?>
 
 <!DOCTYPE html>
@@ -51,53 +55,13 @@ if (!(isset($_SESSION["userid"]))) {
             <div class="pending-orders-wrapper">
                 <h1>Pending Orders</h1>
                 <div class="pending-orders">
-                    <table>
-                        <tr>
-                            <th>Product</th>
-                            <th>Purchased</th>
-                            <th>Price</th>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <div class="product">
-                                    <img src="../../assets/images/temp.png" alt="">
-                                    <p>Teamfight Tactics</p>
-                                </div>
-                            </td>
-                            <td>Dec 3, 2023</td>
-                            <td>€5,55</td>
-                        </tr>
-                    </table>
+                    <?php getPendingOrdersOfUser($_SESSION["userid"]) ?>
                 </div>
             </div>
             <div class="order-history-wrapper">
                 <h1>Order History</h1>
                 <div class="order-history">
-                    <table>
-                        <tr>
-                            <th>Product</th>
-                            <th>Purchased</th>
-                            <th>Price</th>
-                            <th></th>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <div class="product">
-                                    <img src="../../assets/images/temp.png" alt="">
-                                    <p>Teamfight Tactics</p>
-                                </div>
-                            </td>
-                            <td>Dec 3, 2023</td>
-                            <td>5,55</td>
-                            <td>
-                                <form action="" method="post">
-                                    <button name="download-invoice">Download Invoice</button>
-                                </form>
-                            </td>
-                        </tr>
-                    </table>
+                    <?php getDoneOrdersOfUser($_SESSION["userid"]) ?>
                 </div>
             </div>
         </div>

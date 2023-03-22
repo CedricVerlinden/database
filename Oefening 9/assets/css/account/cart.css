@@ -100,6 +100,10 @@ h1, h2, h3, h4, h5, h6 {
     gap: 20px;
 }
 
+.cart .left table .product img {
+    width: 50px;
+}
+
 .cart .right {
     flex: 1;
     padding: 20px;

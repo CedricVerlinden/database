@@ -16,7 +16,7 @@ if (!(isset($_SESSION["userid"]))) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/0489e35579.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../../assets/css/account/cart.css">
+    <link rel="stylesheet" href="../../assets/css/account/checkout.css">
     <link rel="stylesheet" href="../../assets/css/header.css">
     <link rel="stylesheet" href="../../assets/css/footer.css">
     <link rel="stylesheet" href="../../assets/css/buttons.css">
@@ -49,7 +49,14 @@ if (!(isset($_SESSION["userid"]))) {
         </div>
 
         <div class="content">
-            <?php createPdfFile(2); ?>
+            <?php 
+            $address = getUserStreet($_SESSION["userid"]) . " " . getUserNumber($_SESSION["userid"]) . ", " . getUserState($_SESSION["userid"]) . ", " . getUserCountry($_SESSION["userid"]);
+            $random = rand(1000, 9999);
+            while (checkIfOrderIdExists($random)) {
+                $random = rand(1000, 9999);
+            }
+
+            generateInvoicePDF(getUserEmail($_SESSION["userid"]), $address, "ORD-" . $random,  date('Y-m-d'), getCartProductsInfo($_SESSION["userid"]), $_POST["subtotal"], $_POST["btw"], $_POST["total"]) ?>
         </div>
 
         <footer>

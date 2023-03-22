@@ -2,22 +2,20 @@
 require '../../fpdf/fpdf.php';
 include 'connect.inc.php';
 
-function createPdfFile($id) {
+function createPdfFile($userId, $orderId) {
     global $connection;
-
-    $order_id = $id;
 
     $pdf = new FPDF();
     $pdf->AddPage();
 
-    $pdf->SetFont('Arial', 'B', 16);
+    $pdf->SetFont('Arial', '', 16);
     $pdf->Cell(40, 10, 'Order ID:');
-    $pdf->Cell(40, 10, $order_id);
+    $pdf->Cell(40, 10, $orderId);
 
-    $pdf_file = 'order_' . $order_id . '.pdf';
+    $pdf_file = 'order_' . $orderId . '.pdf';
     $pdf->Output('F', $pdf_file);
 
-    $pdf_data = file_get_contents('order_' .$order_id . '.pdf');
+    $pdf_data = file_get_contents('order-' .$orderId . '.pdf');
     $pdf_data = mysqli_real_escape_string($connection, $pdf_data);
 
     $sql = "INSERT INTO orders (pdf) VALUES ('$pdf_data')";
@@ -28,4 +26,82 @@ function createPdfFile($id) {
     }
 
     echo ' <a href="' . $pdf_file . '">Download PDF</a>';
+}
+
+function generateInvoicePDF($customerName, $address, $invoiceNumber, $invoiceDate, $items, $subtotal, $tax, $total) {
+    global $connection;
+    
+    $pdf = new FPDF();
+    $pdf->AddPage();
+
+    $pdf->SetFont('Helvetica','B',16);
+    $pdf->Cell(190,10,'INVOICE',0,1,'C');
+
+    $pdf->SetFont('Helvetica','',12);
+    $pdf->Cell(40,10,'Customer Name:',0,0);
+    $pdf->Cell(100,10,$customerName,0,1);
+
+    $pdf->Cell(40,10,'Address:',0,0);
+    $pdf->Cell(100,10,$address,0,1);
+
+    $pdf->Cell(40,10,'Invoice Number:',0,0);
+    $pdf->Cell(100,10,$invoiceNumber,0,1);
+
+    $pdf->Cell(40,10,'Invoice Date:',0,0);
+    $pdf->Cell(100,10,$invoiceDate,0,1);
+
+    $pdf->SetFont('Helvetica','B',12);
+    $pdf->Cell(90,10,'Item',1,0,'C');
+    $pdf->Cell(30,10,'Price',1,0,'C');
+    $pdf->Cell(30,10,'Quantity',1,0,'C');
+    $pdf->Cell(40,10,'Total',1,1,'C');
+
+    // make list of every product id
+    $productIds = array();
+    $pdf->SetFont('Helvetica','',12);
+    foreach ($items as $item) {
+        $productIds[] = $item['id'];
+        $pdf->Cell(90,10,$item['name'],1,0);
+        $pdf->Cell(30,10,$item['price'],1,0);
+        $pdf->Cell(30,10,$item['quantity'],1,0);
+        $pdf->Cell(40,10,$item['price']*$item['quantity'],1,1);
+    }
+
+    $productIdsString = implode(',', $productIds);
+    var_dump($productIds);
+    var_dump($productIdsString);
+
+    $pdf->Cell(120,10, '' ,0,0);
+    $pdf->Cell(30,10, 'Subtotal:', 0,0);
+    $pdf->Cell(40,10, $subtotal, 0,1);
+
+    $pdf->Cell(120,10,'',0,0);
+    $pdf->Cell(30,10,'BTW (21%):',0,0);
+    $pdf->Cell(40,10,$tax,0,1);
+
+    $pdf->SetFont('Helvetica','B',12);
+    $pdf->Cell(120,10,'',0,0);
+    $pdf->Cell(30,10,'Total:',0,0);
+    $pdf->Cell(40,10,$total,0,1);
+
+    // output PDF to browser
+    $pdf_file = $invoiceNumber . '.pdf';
+    $pdf->Output('F', '../../orders/' . $pdf_file);
+    
+    echo '
+    <div class="card">
+        <h2>Order placed</h2>
+        <p>Your order has been placed successfully. You can download your invoice <a href="../../orders/' . $pdf_file . '" target="_blank">here</a>.</p>
+        <p>Order ID: ORD-' . $invoiceNumber . '</p>
+        <p>Order date: ' . $invoiceDate . '</p>
+        <p>Order address: ' . $address . '</p>
+    </div>
+    ';
+
+    $pdf_data = file_get_contents('../../orders/' .$invoiceNumber . '.pdf');
+    $pdf_data = mysqli_real_escape_string($connection, $pdf_data);
+
+
+    $sql = "INSERT INTO orders (id, user, products, status, pdf, date_added) VALUES ('" . $invoiceNumber . "', '". $_SESSION["userid"] . "', '" . $productIdsString . "', 0, '" . $pdf_data . "', default)";
+    $connection->query($sql);
 }

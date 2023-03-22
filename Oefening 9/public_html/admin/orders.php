@@ -6,6 +6,10 @@ if (!(isset($_SESSION["admin"]) && $_SESSION["admin"] == 1)) {
     header("Location: ../index.php");
     return;
 }
+
+if (isset($_POST["order-id"])) {
+    downloadPdf($_POST["order-id"]);
+}
 ?>
 
 <!DOCTYPE html>
