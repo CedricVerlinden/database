@@ -1,5 +1,5 @@
 <?php
-$connection = new mysqli("localhost", "root", "", "store");
+$connection = new mysqli("localhost", "root", "", "store"); // address, username, password, database
 
 if ($connection->connect_errno) {
     echo "Er is iets fout gegaan met het verbinden van database.

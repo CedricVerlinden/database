@@ -27,7 +27,7 @@ if (!(isset($_SESSION["userid"]) && isset($_POST["checkout"]))) {
     <div class="container">
         <div class="navigation">
             <div class="navigation-left">
-                <h1><a href="./">Store</a></h1>
+                <h1><a href="../">Store</a></h1>
             </div>
             <div class="categories">
                 <ul class="category-list">

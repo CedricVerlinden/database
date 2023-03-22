@@ -1,32 +1,6 @@
 <?php
-require '../../fpdf/fpdf.php';
+require '../../libraries/fpdf/fpdf.php';
 include 'connect.inc.php';
-
-function createPdfFile($userId, $orderId) {
-    global $connection;
-
-    $pdf = new FPDF();
-    $pdf->AddPage();
-
-    $pdf->SetFont('Arial', '', 16);
-    $pdf->Cell(40, 10, 'Order ID:');
-    $pdf->Cell(40, 10, $orderId);
-
-    $pdf_file = 'order_' . $orderId . '.pdf';
-    $pdf->Output('F', $pdf_file);
-
-    $pdf_data = file_get_contents('order-' .$orderId . '.pdf');
-    $pdf_data = mysqli_real_escape_string($connection, $pdf_data);
-
-    $sql = "INSERT INTO orders (pdf) VALUES ('$pdf_data')";
-    if ($connection->query($sql) === TRUE) {
-        echo "PDF file saved to database.";
-    } else {
-        echo "Error: " . $sql . "<br>" . $connection->error;
-    }
-
-    echo ' <a href="' . $pdf_file . '">Download PDF</a>';
-}
 
 function generateInvoicePDF($customerName, $address, $invoiceNumber, $invoiceDate, $items, $subtotal, $tax, $total) {
     global $connection;

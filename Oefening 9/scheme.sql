@@ -1,13 +1,12 @@
--- Create table
-CREATE TABLE store;
+-- Create database
+CREATE DATABASE store;
 
--- Use table
+-- Use database
 USE store;
 
 -- Create table for adresses
 CREATE TABLE addresses (
-    id INT(11) AUTO_INCREMENT PRIMARY KEY,
-    user INT(11) NOT NULL,
+    user INT(11) PRIMARY KEY,
     country TEXT NOT NULL,
     state TEXT NOT NULL,
     street TEXT NOT NULL,
@@ -22,12 +21,12 @@ CREATE TABLE categories (
 
 -- Create table for orders
 CREATE TABLE orders (
-    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    id INT(11) PRIMARY KEY,
     user INT(11) NOT NULL,
     products TEXT NOT NULL,
     status INT(11) NOT NULL,
-    pdf BLOB NOT NULL
-    date_added DATETIME NOT NULL
+    pdf BLOB NOT NULL,
+    date_added DATETIME default CURRENT_TIMESTAMP
 )
 
 -- Create table for platforms
@@ -43,14 +42,14 @@ CREATE TABLE products (
     name TEXT NOT NULL,
     platform INT(11) NOT NULL,
     price INT(11) NOT NULL,
-    images TEXT NOT NULL
+    image TEXT NOT NULL
 );
 
 -- Create table for users
 CREATE TABLE users (
     id INT(11) AUTO_INCREMENT PRIMARY KEY,
     email TEXT NOT NULL,
-    password VARCHAR(60) NOT NULL,
+    password VARCHAR(128) NOT NULL,
     cart TEXT NOT NULL,
-    admin TINYINT(1) NOT NULL
+    admin TINYINT(4) NOT NULL
 );
