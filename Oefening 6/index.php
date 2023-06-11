@@ -3,7 +3,7 @@
 
 <head>
     <link rel="stylesheet" href="style.css">
-    <title>Oefening 2 - Vermenigvuldiging</title>
+    <title>Oefening 6 - Sessies</title>
 </head>
 
 <body>
@@ -19,20 +19,16 @@
             <li><a href="../Oefening 8/">Oefening 8</a></li>
         </ul>
     </nav>
-    <h1>Vermenigvuldiging</h1>
-    <?php
-    $table = [];
+    <h1>Sessies</h1>
+    <form action="authenticate.php" method="post">
+        <label for="user">Gebruikersnaam</label>
+        <input type="text" name="user" placeholder="Gebruikersnaam" required />
 
-    for ($i = 0; $i <= 10; $i++) {
-        $row = [];
-        for ($x = 0; $x <= 10; $x++) {
-            $row[] = "<td>" . $i * $x . "</td>";
-        }
-        $table[] = "<tr>" . implode("", $row) . "</tr>";
-    }
+        <label for="password">Wachtwoord</label>
+        <input type="password" name="password" placeholder="Wachtwoord" required />
 
-    echo "<table>" . implode("", $table) . "</table>";
-    ?>
+        <input type="submit" name="submit" value="Log in" />
+    </form>
 </body>
 
 </html>

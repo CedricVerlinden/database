@@ -1,45 +1,45 @@
 <?php
-    session_start();
+session_start();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Authenticatie</title>
+    <title>Oefening 6 - Authenticatie</title>
 </head>
+
 <body>
     <?php
-        if (isset($_POST["submit"])) {
-            $_SESSION["user"] = $_POST["user"];
-            $_SESSION["pass"] = $_POST["password"];
+    if (!(isset($_POST["submit"]))) {
+        header("Location:./index.php");
+    }
 
-            if ($_SESSION["user"] == "admin" || $_SESSION["user"] == "gast") {
-                switch ($_SESSION["user"]) {
-                    case "admin":
-                        if (!($_SESSION["pass"] == "admin")) {
-                            echo "Deze gebruiker bestaat niet. Probeer het <a href=\"home.php\">opnieuw</a>.";
-                            break;
-                        }
-                        header("Location:./redirect.php");
-                        break;
-                    case "gast":
-                        if (!($_SESSION["pass"] == "paswoord")) {
-                            echo "Deze gebruiker bestaat niet. Probeer het <a href=\"home.php\">opnieuw</a>.";
-                            break;
-                        }
-                        header("Location:./redirect.php");
-                        break;
-                }
-                return;
-            } else {
-                header("Location:./home.php");
+    var_dump($_POST);
+    switch ($_POST["user"]) {
+        case "admin":
+            if (!($_POST["password"] == "admin")) {
+                header("Location:./index.php");
+                break;
             }
 
-        } else {
-            header("Location:./home.php");
-        }
+            $_SESSION["user"] = $_POST["user"];
+            header("Location:./redirect.php");
+            break;
+        case "gast":
+            if (!($_POST["password"] == "wachtwoord")) {
+                header("Location:./index.php");
+                break;
+            }
+
+            $_SESSION["user"] = $_POST["user"];
+            header("Location:./redirect.php");
+            break;
+        default:
+            header("Location:./index.php");
+            break;
+    }
     ?>
 </body>
+
 </html>

@@ -1,8 +1,9 @@
 <?php
-    $mysqli = new mysqli("localhost", "root", "", "klas");
 
-    if ($mysqli->connect_errno) {
-        echo  "Er is iets fout gegaan met het verbinden van database.
-        \n\nStacktrace (" . $mysqli->connect_errno . "): " . $mysqli->connect_error . "";
-    }
-?>
+try {
+    $mysqli = new mysqli("localhost", "root", "", "klas");
+} catch (Exception $e) {
+    echo  "Er is iets fout gegaan met het verbinden van database.
+        \n\nStacktrace (" . $e->getCode() . "): " . $e->getMessage() . "";
+    exit();
+}

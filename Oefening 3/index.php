@@ -14,6 +14,9 @@
             <li><a href="../Oefening 3/">Oefening 3</a></li>
             <li><a href="../Oefening 4/">Oefening 4</a></li>
             <li><a href="../Oefening 5/">Oefening 5</a></li>
+            <li><a href="../Oefening 6/">Oefening 6</a></li>
+            <li><a href="../Oefening 7/">Oefening 7</a></li>
+            <li><a href="../Oefening 8/">Oefening 8</a></li>
         </ul>
     </nav>
     <?php

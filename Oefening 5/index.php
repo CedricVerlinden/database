@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,11 +17,13 @@
             <li><a href="../Oefening 3/">Oefening 3</a></li>
             <li><a href="../Oefening 4/">Oefening 4</a></li>
             <li><a href="../Oefening 5/">Oefening 5</a></li>
+            <li><a href="../Oefening 6/">Oefening 6</a></li>
+            <li><a href="../Oefening 7/">Oefening 7</a></li>
+            <li><a href="../Oefening 8/">Oefening 8</a></li>
         </ul>
     </nav>
     <h1>Rekenoefeningen</h1>
     <?php
-    session_start();
 
     if (!isset($_SESSION["score"])) {
         $_SESSION["score"] = 0;
@@ -82,7 +87,7 @@
     <form action="" method="post">
         <p>Oefening <?php echo $_SESSION["count"] + 1; ?></p>
         <?php echo $getal1 . " " . $bewerking . " " . $getal2 . " = "; ?>
-        <input type="text" name="answer">
+        <input type="text" name="answer" autofocus>
         <input type="submit" name="submit" value="Volgende">
     </form>
 </body>
